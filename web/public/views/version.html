@@ -1,23 +1,23 @@
 <div>
 
     <h5>
-        Version Info
+        {{ 'VERSION.VERSION_INFO' | translate }}
     </h5>
     <table class="table">
         <tr>
-            <th width="120">Component</th>
-            <th width="120">Version</th>
+            <th width="120" data-translate="VERSION.COMPONENT"></th>
+            <th width="120" data-translate="VERSION.VERSION"></th>
         </tr>
         <tr>
-            <td>dizqueTV-backend</td>
+            <td data-translate="APPDATA.BACKEND_MODULE"></td>
             <td><div class='loader' ng-if="version.length &lt;= 0"></div>{{version}}</td>
         </tr>
         <tr>
-            <td>dizqueTV-ui</td>
+            <td data-translate="APPDATA.FRONTEND_MODULE"></td>
             <td id='uiversion'><div class='loader'></div></td>
         </tr>
         <tr>
-            <td>FFMPEG</td>
+            <td data-translate="FFMPEG"></td>
             <td><div class='loader' ng-if="version.length &lt;= 0"></div>{{ffmpegVersion}}</td>
         </tr>
         <!-- coming soon, ffmpeg version, nodejs version, plex version, whatever can be used to help debug things-->

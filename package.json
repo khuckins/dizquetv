@@ -37,12 +37,15 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
+    "angular-sanitize": "^1.8.2",
+    "angular-translate": "^2.18.4",
+    "angular-translate-loader-static-files": "^2.18.4",
     "browserify": "^16.5.1",
     "copyfiles": "^2.2.0",
     "del-cli": "^3.0.0",
+    "nexe": "^3.3.7",
     "nodemon": "^2.0.3",
-    "watchify": "^3.11.1",
-    "nexe": "^3.3.7"
+    "watchify": "^3.11.1"
   },
   "babel": {
     "plugins": [

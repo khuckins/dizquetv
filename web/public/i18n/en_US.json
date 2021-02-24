@@ -1,0 +1,119 @@
+{
+    "APPDATA": {
+        "APPNAME": "dizqueTV",
+        "BACKEND_MODULE": "dizqueTV-backend",
+        "FRONTEND_MODULE": "dizqueTV-ui"
+    },
+    "HELP": {
+        "CHANNEL_GROUP": "This is used by iptv clients to categorize the channels. You can leave it as dizqueTV if you don&apos;t need this sort of classification.",
+        "PROGRAMMING_END": "Programming will restart from the beginning",
+        "BLOCK_SHUFFLE": "Alternates TV shows in blocks of episodes. You can pick the number of episodes per show in each block and if the order of shows in each block should be randomized. Movies are moved to the bottom.",
+        "RANDOM_SHUFFLE": "Completely randomizes the order of programs.",
+        "CYCLIC_SHUFFLE": "Like Random Shuffle, but tries to preserve the sequence of episodes for each TV show. If a TV show has multiple instances of its episodes, they are also cycled appropriately.",
+        "REPLICATE": "Makes multiple copies of the schedule and plays them in sequence. Normally this isn&apos;t necessary, because dizqueTV will always play the schedule back from the beginning when it finishes. But creating replicas is a useful intermediary step sometimes before applying other transformations. Note that because very large channels can be problematic, the number of replicas will be limited to avoid creating really large channels",
+        "REPLICATE_SHUFFLE": "Like &quot;Replicate&quot;, it will make multiple copies of the programming. In addition it will shuffle the programs, but it will make sure not to have too small a distance between two identical programs.",
+        "SORT_SHOWS": "Sorts the list by TV Show and the episodes in each TV show by their season/episode number. Movies are moved to the bottom of the schedule.",
+        "SORT_RELEASE": "Sorts everything by its release date. This will only work correctly if the release dates in Plex are correct. In case any item does not have a release date specified, it will be moved to the bottom.",
+        "BALANCE_SHOWS": "Will replicate some TV shows or delete duplicates of other TV shows in an effort to make it so the total durations of all episodes of each episode are as similar as possible. It&apos;s usually impossible to make the shows perfectly balanced without creating a really high number of duplicates, but it will try to get close. Movies are treated as a single show.",
+        "TWEAK_WEIGHTS": "Similar to Balance TV Shows, but this allows you to pick the weights for each of the shows, so you can decide that some shows should be less frequent than other shows. It has similar caveats as &quot;Balance Shows&quot;.",
+        "ADD_FLEX": "Programs a Flex time slot. Normally you&apos;t use pad times, restrict times or add breaks to add a large quantity of Flex times at once, but this exists for more specific cases.",
+        "RESTRICT_HOURS": "The channel's regular programming between the specified hours. Flex time will fill up the remaining hours.",
+        "PAD_TIMES": "Adds Flex breaks after each TV episode or movie to ensure that the program starts at one of the allowed minute marks. For example, you can use this to ensure that all your programs start at either XX:00 times or XX:30 times. Removes any existing Flex periods before adding the new ones. This button might be disabled if the channel is already too large.",
+        "ADD_BREAKS": "Adds Flex breaks between programs, attempting to avoid groups of consecutive programs that exceed the specified number of minutes. This button might be disabled if the channel is already too large.",
+        "RERUNS": "Divides the programming in blocks of 6, 8 or 12 hours then repeats each of the blocks the specified number of times. For example,  you can make a channel that plays exactly the same channels in the morning and in the afternoon. This button might be disabled if the channel is already too large.",
+        "RECOVER_POSITIONS": "The &quot;Save&quot; button saves the current episodes that are next to be played for each tv show. Then whenever you click the &quot;Recover Episode Popsitions&quot; button, episodes will be rearranged cyclically and they will start with the saved positions. So you can maintain episode sequences even after modifying the channel. If there are any new TV shows, they will start at their current positions. Movies and specials won&apos;t change positions.",
+        "ADD_REDIRECT": "Adds a channel redirect. During this period of time, the channel will redirect to another channel.",
+        "ADD_REDIRECT_PRESET": "Will redirect to another channel while between the selected hours.",
+        "SCHEDULE_SLIDE": "Slides the whole schedule. The &quot;Fast-Forward&quot; button will advance the stream by the specified amount of time. The &quot;Rewind&quot; button does the opposite.",
+        "TIME_SLOTS": "This allows to schedul specific shows to run at specific time slots of the day or a week. It&apos;s recommended you first populate the channel with the episodes from the shows you want to play and/or other content like movies and redirects.",
+        "RANDOM_SLOTS": "This is similar to Time Slots, but instead of time sections, you pick a probability to play each tv show and the length of the block.",
+        "REMOVE": {
+            "DUPLICATES": "",
+            "FLEX": "",
+            "SPECIALS": "",
+            "SHOWS": "",
+            "ALL": ""
+        }
+    },
+    "WARN": {
+        "NO_CHANNEL": "No channels found. Click the <span class='fa fa-plus'></span> to create a channel.",
+        "NO_FILLER_SOURCES": "No filler sources set. Click the {{param}} to add filler lists.",
+        "NO_PROGRAMMING": "There are no programs in the channel, use the <i class='fas fa-plus'></i> button to add programs from your media library or use the Tools to add Flex time or a Channel Redirect"
+    },
+    "MODULE": {
+        "CHANNEL": "Channels",
+        "FILLER": "Filler",
+        "GUIDE": "Guide",
+        "SETTINGS": "Settings",
+        "VERSION": "Version"
+    },
+    "GUIDE": {
+        "HEADER": "TV Guide"
+    },
+    "CHANNEL": {
+        "NUMBER": "Channel Number",
+        "NAME": "Channel Name",
+        "GROUP": "Channel Group",
+        "ICON": "Channel Icon",
+        "ICON_PREVIEW": "Preview",
+        "STEALTH": "(Stealth)"
+    },
+    "PROGRAMMING": {
+        "START_DATE": "Programming Start",
+        "END_DATE": "Programming End",
+        "COUNT": "Total",
+        "FALLBACK": "Fallback",
+        "HIDE_HELP": "Hide Tool Help",
+        "SHOW_HELP": "Show Tool Help",
+        "HIGHER": "Higher",
+        "SHORTER": "Shorter",
+        "TOOLS": "Tools",
+        "CHANNEL_REDIRECT": "Redirect to channel",
+        "FLEX": "Flex",
+        "CONSECUTIVE_AMOUNT": "Desired number of consecutive TV shows.",
+        "RANDOMIZE": "Randomize",
+        "BLOCK_SHUFFLE": "Block Shuffle",
+        "RANDOM_SHUFFLE": "Random Shuffle",
+        "CYCLIC_SHUFFLE": "Cyclic Shuffle",
+        "REPEATS": "Repeats",
+        "REPLICATE": "Replicate",
+        "REPLICATE_SHUFFLE": "Replicate &amp; Shuffle",
+        "SORT_SHOWS": "Sort Shows",
+        "SORT_RELEASE": "Sort Release",
+        "BALANCE_SHOWS": "Balance Shows",
+        "TWEAK_WEIGHTS": "Tweak Weights...",
+        "ADD_FLEX": "Add Flex...",
+        "RESTRICT_HOURS": "Restrict Hours",
+        "PAD_TIMES": "Pad Times",
+        "ADD_BREAKS": "Add Breaks",
+        "RERUNS": "Reruns",
+        "SAVE_POSITIONS": "Save",
+        "RECOVER_POSITIONS": "Recover Episode Positions",
+        "ADD_REDIRECT": "Add Redirect...",
+        "ADD_REDIRECT_PRESET": "\"Channel at Night\"",
+        "REWIND": "Rewind",
+        "FAST_FORWARD": "Fast-Forward",
+        "TIME_SLOTS": "Time Slots...",
+        "RANDOM_SLOTS": "Random Slots..."
+    },
+    "FILLER": {
+        "LISTS": "Filler Lists",
+        "CLIPS": "Clips"
+    },
+    "VERSION": {
+        "VERSION_INFO": "Version Info",
+        "COMPONENT": "Component",
+        "VERSION": "Version"
+    },
+    "GRID": {
+        "NAME": "Name",
+        "ICON": "Icon",
+        "NUMBER": "Number"
+    },
+    "M3U": "M3U",
+    "XMLTV": "XMLTV",
+    "FFMPEG": "FFMPEG",
+    "PLEX": "Plex",
+    "HDHR": "HDHR",
+    "TV_GUIDE": "TV Guide"
+}

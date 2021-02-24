@@ -83,7 +83,7 @@ module.exports = function ($scope, $timeout, dizquetv) {
         $scope.t1 = (new Date()).getTime();
         $scope.t1 = ($scope.t1 - $scope.t1 % MINUTE );
         $scope.t0 = $scope.t1 - $scope.before + $scope.offset;
-        $scope.title = "TV Guide";
+        $scope.title = "GUIDE.HEADER";
         $scope.times = [];
 
         $scope.updateJustNow();
