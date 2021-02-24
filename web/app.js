@@ -3,9 +3,12 @@ require('angular-router-browserify')(angular)
 require('./ext/lazyload')(angular)
 require('./ext/dragdrop')
 require('./ext/angularjs-scroll-glue')
+require('angular-translate');
+require('angular-translate-loader-static-files');
+require('angular-sanitize');
 require('angular-vs-repeat');
 
-var app = angular.module('myApp', ['ngRoute', 'vs-repeat', 'angularLazyImg', 'dndLists', 'luegg.directives'])
+var app = angular.module('myApp', ['ngRoute', 'vs-repeat', 'angularLazyImg', 'dndLists', 'luegg.directives', 'pascalprecht.translate', 'ngSanitize'])
 
 app.service('plex',             require('./services/plex'))
 app.service('dizquetv',         require('./services/dizquetv'))
@@ -61,4 +64,16 @@ app.config(function ($routeProvider) {
     .otherwise({
         redirectTo: "channels"
     })
+})
+
+.config(function ($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+      prefix: './locales/',
+      suffix: '.json'
+    });
+
+    $translateProvider.preferredLanguage('en_US');
+    $translateProvider.fallbackLanguage('en_US');
+    $translateProvider.determinePreferredLanguage();
+    $translateProvider.useSanitizeValueStrategy('sanitize');
 })
