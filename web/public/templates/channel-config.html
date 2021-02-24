@@ -23,29 +23,29 @@
                 <div class="modal-body" ng-if="tab == 'basic'">
 
                     <div class='form-group'>
-                        <label class='form-label' >Channel Number:</label>
+                        <label class='form-label' translate>CHANNEL_NUMBER</label>:
                         <input type="text" class='form-control' type='number' ng-model="channel.number" id='channelNumber'  aria-describedby="channelNumberHelp" />
 
                         <small id='channelNumberHelp' class="text-danger" for='channelNumber'>{{error.number}}</small>
                     </div>
 
                     <div class='form-group'>
-                        <label class='form-label' >Channel Name:</label>
+                        <label class='form-label' translate>CHANNEL_NAME</label>:
                         <input type="text" class='form-control' ng-model="channel.name" id='channelName'  aria-describedby="channelNameHelp" />
 
                         <small id='channelNumberHelp' class="text-danger" for='channelNumber'>{{error.name}}</small>
                     </div>
 
                     <div class='form-group'>
-                        <label class='form-label' >Channel Group:</label>
+                        <label class='form-label' translate>CHANNEL_GROUP</label>:
                         <input type="text" class='form-control' ng-model="channel.groupTitle" id='groupTitle' placeholder="dizqueTV"  aria-describedby="groupTitleHelp" />
 
-                        <small id='groupTitleHelp' class="text-muted" for='channelNumber'>This is used by iptv clients to categorize the channels. You can leave it as dizqueTV if you don&apos;t need this sort of classification.</small>
+                        <small id='groupTitleHelp' class="text-muted" for='channelNumber' translate>HELP_CHANNEL_GROUP</small>
                     </div>
 
                     <div>
                         <span class="pull-right text-danger">{{error.icon}}</span>
-                        <label for="channelIcon" class="small">Channel Icon</label>
+                        <label for="channelIcon" class="small" translate>CHANNEL_ICON</label>
 
                         <div class="input-group mb-1">
                             <input name="channelIcon" id="channelIcon" class="form-control form-control-sm" type="url" ng-model="channel.icon" />
@@ -62,7 +62,7 @@
 
                         <br />
                         <div>
-                            <h6>Preview</h6>
+                            <h6 translate>CHANNEL_ICON_PREVIEW</h6>
                             <img ng-if="channel.icon !== ''" ng-src="{{channel.icon}}" alt="{{channel.name}}" style="max-height: 120px;"/>
                             <span ng-if="channel.icon === ''">{{channel.name}}</span>
                         </div>
@@ -73,17 +73,17 @@
                                                                              -->
                 <div ng-show="tab == 'programming'" class='modal-semi-body'>
                     <div class='form-group row' >
-                        <label for="channelStartTime" class="small col-form-label col-md-auto">Programming Start:</label>
+                        <label for="channelStartTime" class="small col-form-label col-md-auto" translate>PROGRAMMING_START</label>:
                         <div class='col-md-auto'>
                             <input id="channelStartTime" class="form-control form-control-sm col-md-auto" type="datetime-local" ng-model="channel.startTime" aria-describedby="startTimeHelp" />
                             <small class="text-danger" id='startTimeHelp'>{{error.startTime}}</small>
                         </div>
-                        <label for="channelEndTime" class="small col-form-label col-md-auto">Programming End:</label>
+                        <label for="channelEndTime" class="small col-form-label col-md-auto" translate>PROGRAMMING_END</label>:
                         <div class='col-md-auto'>
                             <input id="channelEndTime" class="form-control form-control-sm col-md-auto" type="datetime-local" ng-model="endTime" ng-disabled="true" aria-describedby="endTimeHelp" />
                         </div>
                         <div class='col-md-auto'>
-                            <small class="text-muted form-text" id='endTimeHelp'>Programming will restart from the beginning.</small>
+                            <small class="text-muted form-text" id='endTimeHelp' translate>HELP_PROGRAMMING_END</small>
                         </div>
 
                     </div>
@@ -91,19 +91,20 @@
                             <div class="flex-container">
 
                                 <div class='programming-counter' style='order:4'>
-                                    <span class="small"><b>Total:</b> {{channel.programs.length}}</span>
+                                    <span class="small"><b>{{'PROGRAMMING_TOTAL' | translate}}:</b> {{channel.programs.length}}</span>
                                 </div>
                                 <div class='programming-counter' ng-show='hasFlex' style='order:4'>
-                                    <span class="small"><b>Filler Lists:</b> {{channel.fillerCollections.length}}</span>
+                                    <span class="small"><b>{{'FILLER_LISTS' | translate}}:</b> {{channel.fillerCollections.length}}</span>
                                 </div>
                                 <div class='programming-counter' ng-show='hasFlex' style='order:4'>
-                                    <span class="small"><b>Fallback:</b> {{describeFallback()}}</span>
+                                    <span class="small"><b>{{'FALLBACK' | translate}}:</b> {{describeFallback()}}</span>
                                 </div>
                                 <div class='flex-pull-right' ng-style="{order: (reverseTools?3:4) }" />
 
 
                                 <div class="btn-group-toggle" data-toggle="buttons" ng-show='showShuffleOptions' ng-style="{order: (reverseTools?2:4) }"
-                                    title='{{ showHelp.check ? "Hide" : "Show" }} Tool Help'
+                                    title='{{ 
+                                        (showHelp.check ? "HIDE_HELP" : "SHOW_HELP" | translate) }}'
                                 >
 
                                     <label class='btn btn-sm {{showHelp.check ? "btn-primary":"btn-outline-primary"}} btn-programming-tools'>
@@ -114,7 +115,7 @@
                                 <div ng-style="{order: (reverseTools?1:4) }" >
                                     <button class="btn btn-sm btn-outline-info btn-programming-tools"
                                     ng-click="programmingZoomIn()"
-                                    title="Higher"
+                                    title="{{'HIGHER' | translate}}"
                                     >
                                         <span class="fa fa-arrow-circle-down"></span>
                                     </button>
@@ -123,7 +124,7 @@
                                 <div ng-style="{order: (reverseTools?1:4) }" >
                                     <button class="btn btn-sm btn-outline-info btn-programming-tools"
                                     ng-click="programmingZoomOut()"
-                                    title="Shorter"
+                                    title="{{'SHORTER' | translate}}"
                                     >
                                         <span class="fa fa-arrow-circle-up"></span>
                                     </button>
@@ -145,7 +146,7 @@
                                     ng-click="toggleTools()"
                                     >
                                     <span
-                                    class="fa {{ showShuffleOptions ? 'fa-chevron-down' : 'fa-chevron-right'}}"></span>&nbsp;&nbsp;Tools
+                                    class="fa {{ showShuffleOptions ? 'fa-chevron-down' : 'fa-chevron-right'}}"/><span class="ml-1" translate>TOOLS</span>
                                     </button>
                                 </div>
 
@@ -184,8 +185,8 @@
                                     {{ x.type === 'episode' ? x.showTitle + ' - S' + x.season.toString().padStart(2, '0') + 'E' + x.episode.toString().padStart(2, '0') : x.title}}
                                 </div>
                                 <div style="font-weight:ligther"  ng-show="x.isOffline" class='title' >
-                                    <i ng-if="x.type !== 'redirect' " >Flex</i>
-                                    <span ng-if="x.type === 'redirect' " ><i>Redirect to channel:</i> <b>{{x.channel}}</b></span>
+                                    <i ng-if="x.type !== 'redirect' " translate>FLEX</i>
+                                    <span ng-if="x.type === 'redirect' " ><i>{{"CHANNEL_REDIRECT" | translate}}:</i> <b>{{x.channel}}</b></span>
                                 </div>
                                 <div class="flex-pull-right"></div>
                                 <button class="btn btn-sm btn-link" ng-click="removeItem(x.$index);  $event.stopPropagation()">
@@ -194,7 +195,7 @@
                             </div>
                         </div>
                         <div ng-class='{"col-sm-4": showShuffleOptions, "col-md-8": showShuffleOptions, "col-lg-7": showShuffleOptions, "col-xl-6": showShuffleOptions, "col" : !showShuffleOptions }' ng-if="! hasPrograms()">
-                            <small class='text-info'>There are no programs in the channel, use the <i class='fas fa-plus'></i> button to add programs from your media library or use the Tools to add Flex time or a Channel Redirect</small>
+                            <small class='text-info' translate>WARN_NO_PROGRAMMING</small>
                         </div>
 
                         <div class='col-md-4 col-sm-12 col-xl-6  col-lg-5 programming-pane tools-pane' ng-show="showShuffleOptions"
@@ -205,51 +206,50 @@
                                 <div class="col-xl-6 col-md-12" style="padding: 5px;"  ng-show="hasPrograms()">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <input type="number" class="form-control form-control-sm" placeholder="Desired number of consecutive TV shows." min="1" max="10" ng-model="blockCount" style="width:5em">
+                                            <input type="number" class="form-control form-control-sm" placeholder="{{'CONSECUTIVE_AMOUNT' | translate}}" min="1" max="10" ng-model="blockCount" style="width:5em">
                                             </input>
                                         </div>
-                                        <div class="input-group-prepend">
+                                        <div class="input-group-prepend mr-1">
                                             <div class="input-group-text" style="padding: 0;">
-                                                <label class="small" for="randomizeBlockShuffle" style="margin-bottom: 2px;">&nbsp;Randomize&nbsp;&nbsp;</label>
-                                                <input id="randomizeBlockShuffle" type="checkbox" ng-model="randomizeBlockShuffle"></input>
-                                                &nbsp;
+                                                <label class="small ml-1 mr-1" for="randomizeBlockShuffle" style="margin-bottom: 2px;" translate>RANDOMIZE</label>
+                                                <input id="randomizeBlockShuffle" type="checkbox" ng-model="randomizeBlockShuffle" class="mr-1"></input>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="blockShuffle(blockCount, randomizeBlockShuffle)">
-                                            <i class='fa fa-random' title='Block Shuffle' ></i> Block Shuffle
+                                        <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="blockShuffle(blockCount, randomizeBlockShuffle)" title='{{"BLOCK_SHUFFLE" | translate}}'>
+                                            <i class='fa fa-random mr-1'></i><span translate>BLOCK_SHUFFLE</span>
                                         </button>
                                     </div>
-                                    <p ng-show='showHelp.check'>Alternates TV shows in blocks of episodes. You can pick the number of episodes per show in each block and if the order of shows in each block should be randomized. Movies are moved to the bottom.</p>
+                                    <p ng-show='showHelp.check' translate>HELP_BLOCK_SHUFFLE</p>
     
                                 </div>
 
                                 <div class="col-xl-3 col-lg-6" style="padding: 5px;"  ng-show="hasPrograms()">
                                     <div class="input-group">
-                                      <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="randomShuffle()" aria-describedby="randomShuffleHelp" title='Random Shuffle'>
-                                          <i class='fa fa-random'></i> Random Shuffle
+                                      <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="randomShuffle()" aria-describedby="randomShuffleHelp" title='{{"RANDOM_SHUFFLE" | translate}}'>
+                                          <i class='fa fa-random mr-1'></i><span translate>RANDOM_SHUFFLE</span>
                                       </button>
                                     </div>
-                                    <p for="randomShuffleHelp" class='form-label' ng-show='showHelp.check'>
-                                        Completely randomizes the order of programs.
+                                    <p for="randomShuffleHelp" class='form-label' ng-show='showHelp.check' translate>
+                                        HELP_RANDOM_SHUFFLE
                                     </p>
                                 </div>
 
                                 <div class='col-xl-3 col-lg-6' style="padding: 5px;"  ng-show="hasPrograms()" >
                                     <div class="input-group">
-                                      <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="cyclicShuffle()" title='Cyclic Shuffle' >
-                                          <i class='fa fa-random'></i> Cyclic Shuffle
+                                      <button class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="cyclicShuffle()" title='{{"CYCLIC_SHUFFLE" | translate}}' >
+                                          <i class='fa fa-random mr-1'></i><span translate>CYCLIC_SHUFFLE</span>
                                       </button>
                                     </div>
-                                    <p ng-show='showHelp.check'>Like Random Shuffle, but tries to preserve the sequence of episodes for each TV show. If a TV show has multiple instances of its episodes, they are also cycled appropriately.</p>
+                                    <p ng-show='showHelp.check' translate>HELP_CYCLIC_SHUFFLE</p>
                                 </div>
 
                                 <div class="col-xl-6 col-lg-12" style="padding: 5px;"  ng-show="hasPrograms()">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <input type="number" class="form-control form-control-sm" placeholder="Repeats" min="1" max="{{maxReplicas()}}" ng-model="replicaCount" style="width:5em">
+                                            <input type="number" class="form-control form-control-sm" placeholder="{{'REPEATS' | translate}}" min="1" max="{{maxReplicas()}}" ng-model="replicaCount" style="width:5em">
                                         </div>
-                                        <button ng-disabled="!(replicaCount &gt;= 2)" class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="replicate(replicaCount)"  title='Replicate' >
-                                                <i class='fas fa-recycle'></i> Replicate
+                                        <button ng-disabled="!(replicaCount &gt;= 2)" class="btn btn-sm btn-warning form-control form-control-sm" type="button" ng-click="replicate(replicaCount)"  title='{{"REPLICATE" | translate}}' >
+                                                <i class='fas fa-recycle mr-1'></i><span translate>REPLICATE</span>
                                             </button>
                                     </div>
                                     <p ng-show='showHelp.check'>Makes multiple copies of the schedule and plays them in sequence. Normally this isn&apos;t necessary, because dizqueTV will always play the schedule back from the beginning when it finishes. But creating replicas is a useful intermediary step sometimes before applying other transformations. Note that because very large channels can be problematic, the number of replicas will be limited to avoid creating really large channels.</p>
