@@ -3,20 +3,20 @@
     <delete-filler linker="registerDeleteFiller" on-exit="onFillerDelete"></delete-filler>
 
     <h5>
-        Filler Lists
+        {{ 'Filler Lists' | translate }}
         <button class="pull-right btn btn-sm btn-primary" ng-click="selectFiller(-1)">
             <span class="fa fa-plus"></span>
         </button>
     </h5>
     <table class="table">
         <tr>
-            <th>Name</th>
-            <th width="40">Clips</th>
+            <th translate>NAME</th>
+            <th width="40" translate>CLIPS</th>
             <th style='width:2em'></th>
         </tr>
         <tr ng-if="fillers.length === 0">
             <td colspan="3">
-                <p class="text-center text-danger">No filler sources set. Click the <span class="fa fa-plus"></span> to add filler lists.</p>
+                <p class="text-center text-danger" translate>WARN_NO_FILLER_SOURCES</p>
             </td>
         </tr>
         <tr class='filler-row' ng-repeat="x in fillers" ng-click="selectFiller($index)" style="cursor: pointer; height: 3em"  >
